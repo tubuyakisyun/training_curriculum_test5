@@ -16,7 +16,11 @@ class CalendarsController < ApplicationController
 
   def plan_params
     params.require(:plan).permit(:date, :plan)
-  end
+  end 
+  # def plan_params
+  # params.require(:plan).permit(:date, :plan)
+  # end
+end
 
   def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
@@ -34,14 +38,19 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
 
-          wday_num = @todays_date.wday + x                       # wdayメソッドを用いて取得した数値
+        wday_num = @todays_date.wday + x                       # wdayメソッドを用いて取得した数値
         if wday_num > 7                                     #「wday_numが7以上の場合」という条件式
           wday_num = wday_num -7
         end
+        # wday_num = @todays_date.wday + x                       # wdayメソッドを用いて取得した数値
+        # if wday_num > 7                                     #「wday_numが7以上の場合」という条件式
+        #   wday_num = wday_num -7
+        # end
       end
       days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[(@todays_date.wday + x)]} #wdaysから値を取り出す記述
+      # days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[(@todays_date.wday + x)]} #wdaysから値を取り出す記述
       @week_days.push(days)
     end
-    # 今回できるかな
+  
   end
 end

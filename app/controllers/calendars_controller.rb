@@ -3,7 +3,6 @@ class CalendarsController < ApplicationController
   # １週間のカレンダーと予定が表示されるページ
   def index
     get_week 
-    # get_week
     @plan = Plan.new
   end
 
@@ -21,7 +20,6 @@ class CalendarsController < ApplicationController
  
 
   def get_week 
-    # get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。

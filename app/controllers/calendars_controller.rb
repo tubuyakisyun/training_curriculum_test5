@@ -44,7 +44,6 @@ class CalendarsController < ApplicationController
         
       end
       days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[(@todays_date.wday + x)]} #wdaysから値を取り出す記述
-      # days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[(@todays_date.wday + x)]} #wdaysから値を取り出す記述
       @week_days.push(days)
     end
   
